@@ -44,12 +44,16 @@ class _ContentWidgetState extends State<ContentWidget> {
     return Scaffold(
       appBar: AppBar(
         title: <Widget>[
-          const Text('Home Page'),
-          const Text('Search Page'),
-          const Text('Profile Page')
+          const Center(child: Text('Home Page')),
+          const Center(child: Text('Search Page')),
+          const Center(child: Text('Profile Page'))
         ][currentPageIndex],
         backgroundColor: const Color.fromARGB(255, 165, 42, 160),
-        //titleTextStyle: const  TextStyle(Color(Colors.white));
+        titleTextStyle: const TextStyle(
+          color: Colors.white,
+          fontWeight: FontWeight.bold,
+          fontSize: 24,
+        ),
       ),
       bottomNavigationBar: NavigationBar(
         onDestinationSelected: (int index) {
