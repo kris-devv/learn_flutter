@@ -1,4 +1,7 @@
+import 'package:carousel_slider/carousel_options.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:learn_flutter/profilepage.dart';
 import 'package:learn_flutter/searchPage.dart';
 
@@ -23,8 +26,29 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text("Home Page"),
+    return Center(
+      child: CarouselSlider(
+        items: [1, 2, 3, 4, 5].map((i) {
+          return Container(
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.symmetric(horizontal: 5),
+            decoration: BoxDecoration(
+              color: const Color.fromARGB(255, 218, 112, 214),
+              borderRadius: BorderRadius.circular(10),
+            ),
+            child: Center(
+              child: Text(
+                "text $i",
+                style: const TextStyle(fontSize: 40),
+              ),
+            ),
+          );
+        }).toList(),
+        options: CarouselOptions(
+          height: 300,
+          viewportFraction: 0.8,
+        ),
+      ),
     );
   }
 }
